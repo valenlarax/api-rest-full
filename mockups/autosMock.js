@@ -1,0 +1,6 @@
+const autos = [
+    { id: 1, marca: "Toyota", modelo: "Corolla", año: 2020 },
+    { id: 2, marca: "Honda", modelo: "Civic", año: 2019 },
+    { id: 3, marca: "Ford", modelo: "Mustang", año: 2021 },
+];
+export default autos;
