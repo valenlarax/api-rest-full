@@ -1,0 +1,29 @@
+{
+  "name": "api-rest-full",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "homepage": "https://github.com/valenlarax/api-rest-full#readme",
+  "bugs": {
+    "url": "https://github.com/valenlarax/api-rest-full/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/valenlarax/api-rest-full.git"
+  },
+  "license": "ISC",
+  "author": "valentin lara",
+  "type": "module",
+  "main": "hola.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node hola.js",
+    "dev": "nodemon hola.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
