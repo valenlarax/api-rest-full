@@ -1,9 +1,17 @@
-GET http://localhost:3000/
+###probar GET principal
+GET http://localhost:3000
 
-POST http://localhost:3000/
+###probar POST principal
+POST http://localhost:3000
 Content-Type: application/json
 
 {
   "name": "valentin lara",
   "curso": "hola.js"
 }   
+
+###obtener todos los autos
+GET http://localhost:3000/api/autos
+
+###obtener todos los usuarios
+GET http://localhost:3000/users

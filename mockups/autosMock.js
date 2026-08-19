@@ -3,4 +3,11 @@ const autos = [
     { id: 2, marca: "Honda", modelo: "Civic", año: 2019 },
     { id: 3, marca: "Ford", modelo: "Mustang", año: 2021 },
 ];
-export default autos;
+
+const obtenerTodos =  () => {
+    return autos;
+}
+
+export default {
+    obtenerTodos
+};
