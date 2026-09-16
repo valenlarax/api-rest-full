@@ -1,17 +1,40 @@
-###probar GET principal
+### Página principal
 GET http://localhost:3000
 
-###probar POST principal
-POST http://localhost:3000
+
+### Usuarios
+GET http://localhost:3000/users
+
+
+### Obtener todos los autos
+GET http://localhost:3000/autos
+
+
+### Crear un auto
+POST http://localhost:3000/autos
 Content-Type: application/json
 
 {
-  "name": "valentin lara",
-  "curso": "hola.js"
-}   
+    "marca": "Chevrolet",
+    "modelo": "Camaro",
+    "año": 2022
+}
 
-###obtener todos los autos
-GET http://localhost:3000/api/autos
 
-###obtener todos los usuarios
-GET http://localhost:3000/users
+### Obtener un auto por ID
+GET http://localhost:3000/autos/6a85f1ec151ff846a11af8cc
+
+
+### Modificar un auto
+PUT http://localhost:3000/autos/6a85f1ec151ff846a11af8cc
+Content-Type: application/json
+
+{
+    "marca": "Chevrolet",
+    "modelo": "Camaro SS",
+    "año": 2024
+}
+
+
+### Eliminar un auto
+DELETE http://localhost:3000/autos/6a85f1ec151ff846a11af8cc

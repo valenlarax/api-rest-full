@@ -1,33 +1,32 @@
 import express from "express";
 import autosRouter from "./api/autos.js";
-import usersRouter from "./api/users.js";
+import conectarDB from "./db.js";
+import config from "./config.js";
+import mongoose from "mongoose";
 
 const app = express();
 
 app.use(express.json());
 
-app.use("/api/autos", autosRouter);
-app.use("/users", usersRouter);
-app.get("/prueba", (req, res) => {
-  res.send("LA RUTA DIRECTA FUNCIONA");
+app.use("/autos", autosRouter);
+
+await mongoose.connect('mongodb://localhost:27017/autosdb');
+console.log("Conexión a la base de datos establecida correctamente");
+
+app.listen(config.port, () => {
+    console.log(`Servidor escuchando en http://localhost:${config.port}`);
 });
 
 app.get("/", (req, res) => {
-  res.send("¡Hola desde get en la API!");
+    res.send("Servidor funcionando correctamente");
 });
 
-app.post("/", (req, res) => {
-  const data  = req.body;
-  
-  res.json({
-    message: "¡datos recibidos por POST!",
-    data
-  });
-});    
+app.get("/users", (req, res) => {
+    res.send("Users funciona");
+});
 
-console.log("ESTOY EJECUTANDO ESTE HOLA.JS");
-console.log("RUTA USERS REGISTRADA");
+conectarDB();
 
-app.listen(3000, () => {
-  console.log(" API escuchando en http://localhost:3000");
+app.listen(config.port, () => {
+    console.log(`Servidor escuchando en http://localhost:${config.port}`);
 });
