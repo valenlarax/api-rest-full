@@ -1,32 +1,26 @@
 import express from "express";
-import autosRouter from "./api/autos.js";
-import conectarDB from "./db.js";
-import config from "./config.js";
 import mongoose from "mongoose";
+
+import autosRouter from "./api/autos.js";
+import usersRouter from "./api/users.js";
+
+import "./config-dependencies.js";
 
 const app = express();
 
 app.use(express.json());
 
 app.use("/autos", autosRouter);
-
-await mongoose.connect('mongodb://localhost:27017/autosdb');
-console.log("Conexión a la base de datos establecida correctamente");
-
-app.listen(config.port, () => {
-    console.log(`Servidor escuchando en http://localhost:${config.port}`);
-});
+app.use("/users", usersRouter);
 
 app.get("/", (req, res) => {
     res.send("Servidor funcionando correctamente");
 });
 
-app.get("/users", (req, res) => {
-    res.send("Users funciona");
-});
+await mongoose.connect("mongodb://127.0.0.1:27017/concesionaria");
 
-conectarDB();
+console.log("Conectado a MongoDB");
 
-app.listen(config.port, () => {
-    console.log(`Servidor escuchando en http://localhost:${config.port}`);
+app.listen(3000, () => {
+    console.log("Servidor escuchando en http://localhost:3000");
 });
