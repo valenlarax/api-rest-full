@@ -1,29 +1,29 @@
-import autosRepository from "../repositories/autoRepository.js";
+import { getDependency } from "../dependency.js";
 
-const obtenerAutos = async () => {
-    return autosRepository.obtenerTodos();
-};
+class AutoService {
+    constructor() {
+        this.autoRepository = getDependency("autoRepository");
+    }
 
-const obtenerAutoPorId = async (id) => {
-    return autosRepository.obtenerPorId(id);
-};
+    async obtenerAutos() {
+        return this.autoRepository.obtenerTodos();
+    }
 
-const crearAuto = async (datos) => {
-    return autosRepository.crear(datos);
-};
+    async obtenerAutoPorId(id) {
+        return this.autoRepository.obtenerPorId(id);
+    }
 
-const actualizarAuto = async (id, datos) => {
-    return autosRepository.actualizar(id, datos);
-};
+    async crearAuto(datos) {
+        return this.autoRepository.crear(datos);
+    }
 
-const eliminarAuto = async (id) => {
-    return autosRepository.eliminar(id);
-};
+    async actualizarAuto(id, datos) {
+        return this.autoRepository.actualizar(id, datos);
+    }
 
-export default {
-    obtenerAutos,
-    obtenerAutoPorId,
-    crearAuto,
-    actualizarAuto,
-    eliminarAuto
-};
+    async eliminarAuto(id) {
+        return this.autoRepository.eliminar(id);
+    }
+}
+
+export default AutoService;

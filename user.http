@@ -18,3 +18,30 @@ Content-Type: application/json
     "username": "valentin",
     "password": "1234"
 }
+
+### Login incorrecto
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+    "username": "valentin",
+    "password": "9999"
+}
+### Usuario inexistente
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+    "username": "pepito",
+    "password": "1234"
+}
+### Usuario repetido
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "username": "valentin",
+    "email": "otro@gmail.com",
+    "password": "5678",
+    "displayName": "Otro Valentin"
+}

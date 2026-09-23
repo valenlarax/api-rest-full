@@ -15,26 +15,47 @@ POST http://localhost:3000/autos
 Content-Type: application/json
 
 {
-    "marca": "Chevrolet",
-    "modelo": "Camaro",
+    "marca": "ford",
+    "modelo": "mustang",
     "año": 2022
 }
 
 
 ### Obtener un auto por ID
-GET http://localhost:3000/autos/6a85f1ec151ff846a11af8cc
-
+GET http://localhost:3000/autos/6a85dc19b2c3f8f633b181a7
 
 ### Modificar un auto
-PUT http://localhost:3000/autos/6a85f1ec151ff846a11af8cc
+PUT http://localhost:3000/autos/6a85dc19b2c3f8f633b181a7
 Content-Type: application/json
 
 {
-    "marca": "Chevrolet",
-    "modelo": "Camaro SS",
-    "año": 2024
+    "marca": "Toyota",
+    "modelo": "Corolla NUEVO",
+    "año": 2025
 }
 
+### Eliminar un auto
+DELETE http://localhost:3000/autos/6a85dc19b2c3f8f633b181a7
+
+### Crear un auto
+POST http://localhost:3000/autos
+Content-Type: application/json
+
+{
+    "marca": "Toyota",
+    "modelo": "Corolla",
+    "año": 2025
+}
+
+### Modificar un auto
+PUT http://localhost:3000/autos/6ab43e3ad92caf0a4fc27510
+Content-Type: application/json
+
+{
+    "marca": "Toyota",
+    "modelo": "Corolla GR",
+    "año": 2026
+}
 
 ### Eliminar un auto
-DELETE http://localhost:3000/autos/6a85f1ec151ff846a11af8cc
+DELETE http://localhost:3000/autos/6ab43e3ad92caf0a4fc27510
