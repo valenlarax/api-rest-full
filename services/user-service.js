@@ -1,4 +1,5 @@
 import { getDependency } from "../dependency.js";
+import bcrypt from "bcrypt";
 
 export class UserService {
 
@@ -9,7 +10,8 @@ export class UserService {
     async getlist() {
         return await this.userRepository.find();
     }
-
+async getbyusername(username) {
+return await this.userRepository.findOne({ username });
     async add(user) {
 
         if (!user.username)
@@ -28,25 +30,7 @@ export class UserService {
         if (existingUser.length)
             throw new Error("el nombre de usuario ya existe");
 
-        return await this.userRepository.create(user);
-    }
-
-    async login(username, password) {
-
-        const users = await this.userRepository.find({
-            username: username
-        });
-
-        if (users.length === 0) {
-            throw new Error("usuario o contraseña incorrectos");
-        }
-
-        const user = users[0];
-
-        if (user.password !== password) {
-            throw new Error("usuario o contraseña incorrectos");
-        }
-
-        return user;
+        user.password = await bcrypt.hash(user.password, 10);
+        return  this.userRepository.create(user);
     }
 }
